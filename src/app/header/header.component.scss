@@ -1,0 +1,47 @@
+.name-checkbox__wrapper{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox__container {
+  display: flex;
+
+  align-self: end;
+}
+
+input[type=text]{
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 5px 0 0;
+}
+
+.dateTime {
+  width: 157px;
+  background-color: white;
+  align-self: end;
+  margin: 30px;
+  padding: 13px 0;
+  border-radius: 24px;
+}
+
+.header { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header > svg {
+  cursor: pointer;
+}
+
+.header-input {
+  width: 35% !important;
+  margin: 0 !important;
+  font-size: 2em;
+  font-weight: bold;
+}

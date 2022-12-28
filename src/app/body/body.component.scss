@@ -1,0 +1,106 @@
+li {
+  list-style-type: none;
+  background-color: white;
+}
+
+.task__wrapper {
+  display: flex;
+}
+.task__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin: 10px auto;
+  padding-right: 10px;
+}
+
+.task__text {
+  margin-left: 20px;
+}
+
+.button__wrapper {
+  display: flex;
+  gap: 7px;
+}
+.btn {
+  padding: 9px 18px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit__button {
+  background-color: rgb(113, 154, 30);
+}
+
+.delete__button {
+  background-color: red;
+}
+
+.edit__button:hover {
+  background-color: green;
+}
+
+.delete__button:hover {
+  background-color: rgb(169, 34, 34);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.uncompleted__count {
+  margin-top: 30px;
+  align-self: end;
+}
+
+.clear__container {
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+
+.clear__button {
+  width: 100%;
+  border: 0;
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  height: 37px;
+  border-radius: 5px;
+}
+
+.clear__text {
+  background-color: rgb(255 225 169);
+  color: #bc9650;
+  height: 45px;
+  line-height: 50px;
+  padding-left: 10px;
+}
+
+.text-line-through {
+  text-decoration-line: line-through;
+}
+
+.edit__button__background-color__yellowgreen {
+  background-color: yellowgreen;
+  cursor: unset;
+}
+
+.edit__button__background-color__yellowgreen:hover{
+  background-color: yellowgreen;
+
+}
+
+.hidden {
+  display: none;
+}
+
+.select-all{
+  position: relative;
+  bottom: 42px;
+  left: 386px;
+}

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="select-all">
+    <input #inputElSelectAll type="checkbox" (change)="onCheckSelectAll(inputElSelectAll.checked)"><label for="select">Select All</label>
+  </div>
+  <li *ngFor="let task of lists; index as i" class="task__container">
+    <div class="task__wrapper">
+      <input type="checkbox" #inputElCheckOneTask (change)="onCheck(inputElCheckOneTask.checked, i)" [checked]="deleteTaskList.includes(i)"/>
+      <div class="task__text">
+        <span *ngIf="editIndex !== i" [class.text-line-through]="deleteTaskList.includes(i)">{{ task }}</span>
+        <input type="text" value="{{ task }}" *ngIf="editIndex === i" id="editText" />
+      </div>
+    </div>
+    <div class="button__wrapper">
+      <button [disabled]="deleteTaskList.includes(i)" type="button" class="btn edit__button" (click)="editButton(i)" *ngIf="editIndex !== i" 
+        [class.edit__button__background-color__yellowgreen]="deleteTaskList.includes(i)" >Edit</button>
+      <button type="button" class="btn edit__button" (click)="doneButton(i)" *ngIf="editIndex === i">Done</button>
+      <button type="button" class="btn delete__button" (click)="deleteButton(i)">Del</button>
+    </div>
+  </li>
+  <span class="uncompleted__count">{{ lists.length - deleteTaskList.length }} uncompleted tasks</span>
+  <div class="clear__container" [class.hidden]="deleteTaskList.length === 0">
+    <button type="button" class="clear__button" (click)="clearCompleted()">Clear Completed</button>
+    <div class="clear__text">You've selected an item</div>
+  </div>
+</div>
