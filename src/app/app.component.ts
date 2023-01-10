@@ -12,4 +12,8 @@ export class AppComponent {
   addNewTask(newTask: any) {
     this.fullList.push(newTask.target.value);
   }
+
+  newList(tasks: any) {
+    this.fullList = tasks;
+  }
 }
