@@ -1,4 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-body',
@@ -6,6 +7,7 @@ import { Component, Input, ViewChild } from '@angular/core';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent {
+  @Output() newList = new EventEmitter<any>();
   @Input() lists = [''];
   @ViewChild('selectAllCheckbox') isChecked: any;
   editIndex = -1;
@@ -18,6 +20,7 @@ export class BodyComponent {
   doneButton(index: number, editTask: string ) {
     this.lists[index] = editTask;
     this.editIndex = -1;
+    this.newList.emit(this.lists);
   }
 
   deleteButton(index: number) {
@@ -26,6 +29,7 @@ export class BodyComponent {
       let indexOf = this.deleteTaskList.indexOf(index);
       this.deleteTaskList.splice(indexOf, 1);
     }
+    this.newList.emit(this.lists);
   }
 
   onCheck(isChecked: boolean, index: number) {
@@ -43,6 +47,7 @@ export class BodyComponent {
     }
     this.deleteTaskList = [];
     this.isChecked.nativeElement.checked = false;
+    this.newList.emit(this.lists);
   }
 
   onCheckSelectAll(isChecked: boolean) {
