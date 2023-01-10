@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-angular';
+  fullList = ['todo1', 'todo2', 'todo3'];
+
+  addNewTask(newTask: any) {
+    this.fullList.push(newTask.target.value);
+  }
 }

@@ -1,4 +1,4 @@
 <div>
-  <app-header></app-header>
-  <app-body></app-body>
+  <app-header (newTask)="addNewTask($event)"></app-header>
+  <app-body [lists]="fullList"></app-body>
 </div>
