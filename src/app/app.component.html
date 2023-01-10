@@ -1,4 +1,9 @@
 <div>
   <app-header (newTask)="addNewTask($event)"></app-header>
-  <app-body [lists]="fullList" (newList)="newList($event)"></app-body>
+  <app-body 
+    [lists]="fullList" 
+    (editTask)="editElement($event)" 
+    (deleteTasks)="removeElemets($event)" 
+    (clearCompletedButton)="clearCompleted($event)"
+  ></app-body>
 </div>

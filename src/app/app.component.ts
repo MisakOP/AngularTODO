@@ -13,7 +13,17 @@ export class AppComponent {
     this.fullList.push(newTask.target.value);
   }
 
-  newList(tasks: any) {
-    this.fullList = tasks;
+  editElement(event: any) {
+    this.fullList[event.index] = event.editTask;
+  }
+
+  removeElemets(index: number) {
+    this.fullList.splice(index, 1);
+  }
+
+  clearCompleted(deleteTaskList: any) {
+      for(let i =0; i < deleteTaskList.length; i++){
+      this.fullList.splice(deleteTaskList[i] - i, 1)
+    }
   }
 }

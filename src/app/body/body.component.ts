@@ -7,7 +7,9 @@ import { Component, Input, Output, ViewChild } from '@angular/core';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent {
-  @Output() newList = new EventEmitter<any>();
+  @Output() editTask = new EventEmitter<any>();
+  @Output() deleteTasks = new EventEmitter<any>();
+  @Output() clearCompletedButton = new EventEmitter<any>();
   @Input() lists = [''];
   @ViewChild('selectAllCheckbox') isChecked: any;
   editIndex = -1;
@@ -18,18 +20,16 @@ export class BodyComponent {
   }
 
   doneButton(index: number, editTask: string ) {
-    this.lists[index] = editTask;
     this.editIndex = -1;
-    this.newList.emit(this.lists);
+    this.editTask.emit({index, editTask});
   }
 
   deleteButton(index: number) {
-    this.lists.splice(index, 1);
+    this.deleteTasks.emit(index);
     if(this.deleteTaskList.includes(index)){
       let indexOf = this.deleteTaskList.indexOf(index);
       this.deleteTaskList.splice(indexOf, 1);
     }
-    this.newList.emit(this.lists);
   }
 
   onCheck(isChecked: boolean, index: number) {
@@ -42,12 +42,9 @@ export class BodyComponent {
     }
   }
   clearCompleted() {
-    for(let i =0; i < this.deleteTaskList.length; i++){
-      this.lists.splice(this.deleteTaskList[i] - i, 1)
-    }
+    this.clearCompletedButton.emit(this.deleteTaskList);
     this.deleteTaskList = [];
     this.isChecked.nativeElement.checked = false;
-    this.newList.emit(this.lists);
   }
 
   onCheckSelectAll(isChecked: boolean) {
