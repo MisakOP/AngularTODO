@@ -47,21 +47,20 @@ describe('BodyComponent', () => {
 
   describe('onCheck', () => {
     it('should push the index to deleteTaskList ', () => {
-      // first case
-      let isCheckedFirst = true;
-      let indexFirst = 1;
-      component.onCheck(isCheckedFirst, indexFirst);
+      let isChecked = true;
+      let index = 1;
+      component.onCheck(isChecked, index);
 
-      expect(component.deleteTaskList).toContain(indexFirst);
+      expect(component.deleteTaskList).toContain(index);
 
     });
 
     it('should remove the index to deleteTaskList ', () => {
-      let isCheckedSecond = false;
-      let indexSecond = 3;
-      component.onCheck(isCheckedSecond, indexSecond);
+      let isChecked = false;
+      let index = 3;
+      component.onCheck(isChecked, index);
 
-      expect(component.deleteTaskList).not.toContain(indexSecond);
+      expect(component.deleteTaskList).not.toContain(index);
     });
   });
 
