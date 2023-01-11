@@ -46,7 +46,7 @@ describe('BodyComponent', () => {
   });
 
   describe('onCheck', () => {
-    it('should push or remove the index to deleteTaskList array depends on isCheked state', () => {
+    it('should push the index to deleteTaskList ', () => {
       // first case
       let isCheckedFirst = true;
       let indexFirst = 1;
@@ -54,7 +54,9 @@ describe('BodyComponent', () => {
 
       expect(component.deleteTaskList).toContain(indexFirst);
 
-      // secondCase
+    });
+
+    it('should remove the index to deleteTaskList ', () => {
       let isCheckedSecond = false;
       let indexSecond = 3;
       component.onCheck(isCheckedSecond, indexSecond);
