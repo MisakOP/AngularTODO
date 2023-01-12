@@ -78,12 +78,19 @@ describe('BodyComponent', () => {
   });
 
   describe('onCheckSelectAll', () => {
-    it('should select all tasks or remove checked for all tasks', () => {
+    it('should select all tasks', () => {
       let isChecked = true;
       component.lists = ['todo1', 'todo2', 'todo3'];
       component.onCheckSelectAll(isChecked);
 
       expect(component.deleteTaskList.length).toEqual(component.lists.length);
     });
+
+    it('should remove all selected tasks', () => {
+      let isChecked = false;
+      component.onCheckSelectAll(isChecked);
+
+      expect(component.deleteTaskList).toEqual([]);
+    })
   });
 });
